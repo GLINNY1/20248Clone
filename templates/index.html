@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 Game</title>
+    <!-- Link CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="game-board">
+        <!-- The game board will have 16 tiles -->
+        <div class="tile" id="tile-0"></div>
+        <div class="tile" id="tile-1"></div>
+        <div class="tile" id="tile-2"></div>
+        <div class="tile" id="tile-3"></div>
+        <div class="tile" id="tile-4"></div>
+        <div class="tile" id="tile-5"></div>
+        <div class="tile" id="tile-6"></div>
+        <div class="tile" id="tile-7"></div>
+        <div class="tile" id="tile-8"></div>
+        <div class="tile" id="tile-9"></div>
+        <div class="tile" id="tile-10"></div>
+        <div class="tile" id="tile-11"></div>
+        <div class="tile" id="tile-12"></div>
+        <div class="tile" id="tile-13"></div>
+        <div class="tile" id="tile-14"></div>
+        <div class="tile" id="tile-15"></div>
+    </div>
+
+    <!-- Inject initial board from Flask -->
+    <script>
+        const initialBoard = JSON.parse('{{ board|tojson|safe }}');
+        console.log("Initial Board:", initialBoard);
+    </script>
+
+    <!-- Link JavaScript file -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
